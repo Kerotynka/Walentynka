@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynka</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        img {
+            width: 300px;
+            border-radius: 15px;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background-color: #999;
+            color: white;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Czy zostaniesz moją walentynką? ❤️</h1>
+        <img src="Kotek.jpg" alt="Kotek">
+        <div class="buttons">
+            <button class="yes" onclick="showGif()">Tak</button>
+            <button class="no" onmouseover="moveButton()">Nie</button>
+        </div>
+        <div id="gif-container" class="hidden">
+            <h2>Yay! ❤️</h2>
+            <img src="cat.gif" alt="Happy Cat">
+            <audio autoplay>
+                <source src="meow.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    
+    <script>
+        function moveButton() {
+            let button = document.querySelector('.no');
+            let maxX = window.innerWidth - button.clientWidth - 20;
+            let maxY = window.innerHeight - button.clientHeight - 20;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            button.style.transform = `translate(${x}px, ${y}px)`;
+        }
+        
+        function showGif() {
+            document.getElementById('gif-container').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
